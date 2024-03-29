@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PublicController!{% endblock %}
+
+{%block stylesheets%}
+    <style>
+    div {
+        background-color:#CCC;
+    }
+    h3{
+        color:darkblue
+    }
+{%endblock%}
+
+{% block body %}
+
+</style>
+
+
+<div>
+    <h1> {{article.titre1}}</h1>
+    <h3> {{article.Author}}</h3>
+    <h1><a href="{{ path('app_accueil') }}">{{ "Ceci est un bouton retour arrière" }}</a></h1>
+    
+</div>
+
+{% endblock %}
