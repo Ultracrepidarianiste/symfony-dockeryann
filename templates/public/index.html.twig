@@ -2,7 +2,7 @@
 
 {% block title %}Hello PublicController!{% endblock %}
 
-{%block stylesheets%}
+{% block stylesheets%}
     <style>
     div {
         background-color:#CCC;
@@ -14,6 +14,15 @@
 {%endblock%}
 
 {% block body %}
+
+    {% if app.user %}
+        <p>Bienvenue {{ app.user.email }}</p>
+        
+    {% else %}
+        <a href="{{ path('app_login') }}">Login</a>
+        <a href="{{ path('app_register') }}">register</a>
+    {% endif %}
+
 
     {% for article in articles %}
         <div>

@@ -26,9 +26,6 @@ class Article
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTime $Date = null;
 
-    #[ORM\OneToMany(targetEntity: commentaire::class, mappedBy: 'relart', orphanRemoval: true)]
-    private Collection $relation;
-
     #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'Article')]
     private Collection $idArticle;
 

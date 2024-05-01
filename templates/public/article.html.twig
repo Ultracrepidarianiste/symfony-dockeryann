@@ -18,9 +18,26 @@
 
 
 <div>
+    {% if app.user %}
+        <p>Bienvenue {{ app.user.email }}</p>
+    {% else %}
+        <a href="{{ path('app_login') }}">Login</a>
+        <a href="{{ path('app_register') }}">register</a>
+    {% endif %}
     <h1> {{article.titre1}}</h1>
     <h3> {{article.Author}}</h3>
+    {% for commentaire in commentaires %}
+        <h1>{{ commentaire.Text1 }}</h1>
+        <h3>{{ commentaire.Author }}</h3>
+{% endfor %}
     <h1><a href="{{ path('app_accueil') }}">{{ "Ceci est un bouton retour arrière" }}</a></h1>
+
+    {% if app.user %}
+        
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    {% endif %}
     
 </div>
 

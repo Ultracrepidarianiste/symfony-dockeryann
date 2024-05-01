@@ -21,12 +21,6 @@ class Commentaire
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTime $Date = null;
 
-
-
-    #[ORM\ManyToOne(inversedBy: 'relation')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Article $relart = null;
-
     #[ORM\ManyToOne(inversedBy: 'idArticle')]
     private ?Article $Article = null;
 
@@ -47,17 +41,6 @@ class Commentaire
         return $this;
     }
 
-    public function getRelart(): ?Article
-    {
-        return $this->relart;
-    }
-
-    public function setRelart(?Article $relart): static
-    {
-        $this->relart = $relart;
-
-        return $this;
-    }
     public function getAuthor(): ?string
     {
         return $this->Author;
